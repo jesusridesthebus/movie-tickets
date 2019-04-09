@@ -12,25 +12,29 @@
     <main class="container">
       <h1>Movie Tickets</h1>
       <form class="form-group" id="tix">
+        <label for="movie-name">Select movie</label>
         <select class="form-control" id="movie-name" name="">
           <option value="1">Willy Wonka</option>
           <option value="1">Donnie Darko</option>
           <option value="1">Princess Bride</option>
           <option value="1">I'm Not a Movie Person: The Musical</option>
         </select>
+        <label for="time-of-day">Select time of day</label>
         <select class="form-control" id="time-of-day" name="" value="">
           <option value="6">Morning</option>
           <option value="8">Afternoon</option>
           <option value="10">Evening</option>
         </select>
+        <label for="age-range">Select your age range</label>
         <select class="form-control" id="age-range" name="">
-          <option value=".8">0-12</option>
-          <option value="1">13-60</option>
-          <option value=".75">60-99</option>
+          <option value=".9">0-12</option>
+          <option value="1">13-59</option>
+          <option value=".8">60-99</option>
           <option value="0">100 and up</option>
         </select>
         <button type="submit" id="price-button" class="btn btn-dark" name="button">Ticket Price</button>
       </form>
+      <section id="ticket-result"><span class="ticket"></span></section>
     </main>
   </body>
 </html>
