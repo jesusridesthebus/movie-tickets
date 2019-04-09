@@ -6,11 +6,35 @@ function MovieTicket(movie, time, age, price) {
 }
 
 function priceCalculation(price) {
-	return '$ ' + price.toFixed(2);
+	return '$' + price.toFixed(2);
 }
 
-function showTicket() {
-
+MovieTicket.prototype.showTicket = function() {
+	$('#ticket-result').empty();
+	if(this.movie=='Willy Wonka') {
+		$('#ticket-result').addClass('gold');
+		$('#ticket-result').append('<h2>I\'ve Got a Golden Ticket🎵</h2>');
+	} else {
+		$('#ticket-result').append('<h2>Your Movie Ticket </h2>');
+		$('#ticket-result').removeClass('gold');
+	}
+	$('#ticket-result').append('<p>Movie Name: ' + this.movie + '</p>');
+	$('#ticket-result').append('<p>Time of Day: ' + this.time + '</p>');
+	var group = 'Adult';
+	if(this.age == '0-12') {
+		group = 'Child';
+	} else if(this.age == '60-99') {
+		group = 'Senior';
+	} else if(this.age == '100 and up') {
+		group = 'Super Awesome Champion of Life';
+	}
+	$('#ticket-result').append('<p>Your Age Range: ' + group + '</p>');
+	$('#ticket-result').append('<p>Time of Day: ' + this.time + '</p>');
+	if(group == 'Super Awesome Champion of Life') {
+		$('#ticket-result').append('<p>Price: FREEEEEEEEEEE!!</p>');
+	} else {
+		$('#ticket-result').append('<p>Price: ' + this.price + '</p>');
+	}
 }
 
 $(function() {
@@ -23,5 +47,6 @@ $(function() {
 
 		var movieTicket = new MovieTicket(movieName, timeOfDay, ageRange, ticketPrice);
 		console.log(movieTicket);
+		movieTicket.showTicket();
 	});
 });
